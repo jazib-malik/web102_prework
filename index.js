@@ -18,6 +18,8 @@ function addGamesToPage(games) {
             <img src="${games[i].img}" class="game-img" />
             <h3>${games[i].name}</h3>
             <p>${games[i].description}</p>
+            <p>Pledged: $${games[i].pledged.toLocaleString()}</p>
+            <p>Goal: $${games[i].goal.toLocaleString()}</p>
             <p>Backers: ${games[i].backers.toLocaleString()}</p>
         `;
         gamesContainer.appendChild(card);
@@ -76,7 +78,7 @@ const sortedGames = GAMES_JSON.sort((item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 
-const [firstGame, secondGame, ...rest] = sortedGames;
+const [firstGame, secondGame, ..._rest] = sortedGames;
 
 const firstGameName = document.createElement("p");
 firstGameName.innerHTML = firstGame.name;
